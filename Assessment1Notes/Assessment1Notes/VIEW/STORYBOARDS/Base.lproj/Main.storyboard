@@ -13,7 +13,7 @@
         <!--Notes-->
         <scene sceneID="Wfd-bt-xgi">
             <objects>
-                <tableViewController id="K7x-yK-ZnV" sceneMemberID="viewController">
+                <tableViewController id="K7x-yK-ZnV" customClass="NoteListTableViewController" customModule="Assessment1Notes" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YUp-6P-7vG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -60,7 +60,7 @@
         <!--Title-->
         <scene sceneID="SwH-ym-8cH">
             <objects>
-                <viewController id="eD3-N2-VJB" sceneMemberID="viewController">
+                <viewController id="eD3-N2-VJB" customClass="NoteDetailViewController" customModule="Assessment1Notes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lFJ-Nv-21n">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
