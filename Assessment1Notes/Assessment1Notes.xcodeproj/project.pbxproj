@@ -64,7 +64,6 @@
 				0C770FA622B3F3DC0099169E /* VIEW */,
 				0C770FA522B3F38E0099169E /* CONTROLLERS */,
 				0C00CF4122B3EFA600CF81C8 /* RESOURCES */,
-				0C770F9F22B3F31C0099169E /* NoteController.swift */,
 			);
 			path = Assessment1Notes;
 			sourceTree = "<group>";
@@ -108,6 +107,7 @@
 		0C770FA522B3F38E0099169E /* CONTROLLERS */ = {
 			isa = PBXGroup;
 			children = (
+				0C770FA922B3F76B0099169E /* MODEL CONTROLLER */,
 				0C770FA322B3F33A0099169E /* VIEW CONTROLLERS */,
 			);
 			path = CONTROLLERS;
@@ -119,6 +119,14 @@
 				0C00CF4222B3EFBF00CF81C8 /* STORYBOARDS */,
 			);
 			path = VIEW;
+			sourceTree = "<group>";
+		};
+		0C770FA922B3F76B0099169E /* MODEL CONTROLLER */ = {
+			isa = PBXGroup;
+			children = (
+				0C770F9F22B3F31C0099169E /* NoteController.swift */,
+			);
+			path = "MODEL CONTROLLER";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
