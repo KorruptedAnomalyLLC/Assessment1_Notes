@@ -19,7 +19,7 @@ class NoteController {
     
     // Source of Truth
     var notes: [Note] = []
-    
+        
     func addEntryWith(title: String, text: String) {
         // Appending/adding the note to the notes source of truth, which applies it to the Note model
         let note = Note(noteTitle: title, noteText: text)

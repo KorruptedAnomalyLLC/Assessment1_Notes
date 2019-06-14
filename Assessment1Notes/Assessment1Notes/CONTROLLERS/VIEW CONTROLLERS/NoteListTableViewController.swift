@@ -8,13 +8,20 @@
 
 import UIKit
 
-class NoteListTableViewController: UITableViewController {
-
+class NoteListTableViewController: UITableViewController, UISearchBarDelegate {
+    
+    
+    @IBOutlet weak var noteSearchBar: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Ordering Test
-        //self.tableView.isEditing = true
+        //search bar
+        noteSearchBar.delegate = self
+        noteSearchBar.returnKeyType = UIReturnKeyType.done
         
+        // Reload the table
+        tableView.reloadData()
+ 
     }
 
     @IBAction func editButtonTapped(_ sender: Any) {
@@ -38,17 +45,19 @@ class NoteListTableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        //search bar
+        
         return NoteController.shared.notes.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath)
-
+        
         let note = NoteController.shared.notes[indexPath.row]
         cell.textLabel?.text = note.noteTitle
         cell.detailTextLabel?.text = note.noteText
+        
 
         return cell
     }
@@ -81,7 +90,6 @@ class NoteListTableViewController: UITableViewController {
         return true
     }
     
-
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
