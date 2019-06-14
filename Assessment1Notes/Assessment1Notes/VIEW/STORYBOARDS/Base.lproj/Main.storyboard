@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="eyM-Ml-hc9" style="IBUITableViewCellStyleDefault" id="khR-c8-TBd">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="noteCell" textLabel="eyM-Ml-hc9" detailTextLabel="gtl-Fh-WcH" style="IBUITableViewCellStyleSubtitle" id="khR-c8-TBd">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="khR-c8-TBd" id="Oyi-Uw-Xo0">
@@ -27,9 +27,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eyM-Ml-hc9">
-                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                            <rect key="frame" x="20" y="5" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gtl-Fh-WcH">
+                                            <rect key="frame" x="20" y="25.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -46,11 +53,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Notes" id="p6q-YX-L8h">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="z7h-6s-Nyo">
-                            <connections>
-                                <segue destination="eD3-N2-VJB" kind="show" id="KfF-1q-TAc"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="z7h-6s-Nyo">
+                                <connections>
+                                    <segue destination="eD3-N2-VJB" kind="show" id="KfF-1q-TAc"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="edit" id="HOg-LY-a6d">
+                                <connections>
+                                    <action selector="editButtonTapped:" destination="K7x-yK-ZnV" id="Kr9-uV-sxU"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g2S-e6-mZM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -71,24 +85,41 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Note Name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VCW-DL-fxA">
+                                <rect key="frame" x="20" y="100" width="374" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="yfo-Ei-Hpv" firstAttribute="leading" secondItem="ahk-cf-rWq" secondAttribute="leading" constant="20" id="6pe-7V-73N"/>
                             <constraint firstItem="yfo-Ei-Hpv" firstAttribute="centerX" secondItem="lFJ-Nv-21n" secondAttribute="centerX" id="F7c-rY-ZKd"/>
+                            <constraint firstItem="VCW-DL-fxA" firstAttribute="leading" secondItem="ahk-cf-rWq" secondAttribute="leading" constant="20" id="JmW-dS-nH0"/>
+                            <constraint firstItem="VCW-DL-fxA" firstAttribute="top" secondItem="ahk-cf-rWq" secondAttribute="top" constant="12" id="RlM-iW-0h7"/>
                             <constraint firstItem="yfo-Ei-Hpv" firstAttribute="top" secondItem="ahk-cf-rWq" secondAttribute="top" constant="50" id="Yh7-bW-uF2"/>
+                            <constraint firstItem="ahk-cf-rWq" firstAttribute="trailing" secondItem="VCW-DL-fxA" secondAttribute="trailing" constant="20" id="a41-fm-KDo"/>
                             <constraint firstItem="ahk-cf-rWq" firstAttribute="trailing" secondItem="yfo-Ei-Hpv" secondAttribute="trailing" constant="20" id="omw-sA-dqd"/>
                             <constraint firstItem="yfo-Ei-Hpv" firstAttribute="centerY" secondItem="lFJ-Nv-21n" secondAttribute="centerY" id="yfK-pd-zPo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ahk-cf-rWq"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="Ogv-jc-bPm">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="kGf-1o-oea"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="kGf-1o-oea">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="eD3-N2-VJB" id="zY3-r1-lJQ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="noteTextView" destination="yfo-Ei-Hpv" id="NOM-Y1-HSQ"/>
+                        <outlet property="noteTitleTextField" destination="VCW-DL-fxA" id="kl6-Au-QA7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2mN-Pz-5YK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="825" y="122"/>
+            <point key="canvasLocation" x="824.63768115942037" y="121.875"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Bi8-RA-PJC">
